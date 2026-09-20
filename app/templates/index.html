@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Document Q&A</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 RAG Document Q&A System</h1>
+            <p class="subtitle">Upload documents and ask questions with source citations</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab active" data-tab="ingest">📥 Ingest</button>
+            <button class="tab" data-tab="query">💬 Query</button>
+            <button class="tab" data-tab="sources">📄 Sources</button>
+            <button class="tab" data-tab="stats">📊 Stats</button>
+        </nav>
+
+        <main>
+            <!-- Ingest Tab -->
+            <section id="tab-ingest" class="tab-content active">
+                <div class="card">
+                    <h2>Upload Documents</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📁</div>
+                        <p>Drag & drop files here, or click to browse</p>
+                        <input type="file" id="fileInput" multiple accept=".pdf,.txt,.md">
+                    </div>
+                    <div id="fileList"></div>
+                    <div class="form-group">
+                        <label for="strategy">Chunking Strategy:</label>
+                        <select id="strategy">
+                            <option value="recursive" selected>Recursive (Default)</option>
+                            <option value="fixed">Fixed-Size</option>
+                            <option value="sentence">Sentence-Boundary</option>
+                        </select>
+                    </div>
+                    <button id="ingestBtn" class="btn btn-primary">🚀 Ingest Documents</button>
+                    <div id="ingestResult" class="result-box"></div>
+                </div>
+            </section>
+
+            <!-- Query Tab -->
+            <section id="tab-query" class="tab-content">
+                <div class="card">
+                    <h2>Ask a Question</h2>
+                    <div class="form-group">
+                        <textarea id="question" placeholder="Type your question here..." rows="4"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="topK">Top K Results:</label>
+                            <input type="number" id="topK" value="5" min="1" max="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="filterSource">Filter Source:</label>
+                            <input type="text" id="filterSource" placeholder="e.g., report.pdf">
+                        </div>
+                    </div>
+                    <button id="queryBtn" class="btn btn-primary">🔍 Search</button>
+                    <div id="queryResult" class="result-box"></div>
+                </div>
+            </section>
+
+            <!-- Sources Tab -->
+            <section id="tab-sources" class="tab-content">
+                <div class="card">
+                    <h2>Indexed Sources</h2>
+                    <button id="refreshSources" class="btn btn-secondary">🔄 Refresh</button>
+                    <ul id="sourcesList" class="sources-list"></ul>
+                </div>
+            </section>
+
+            <!-- Stats Tab -->
+            <section id="tab-stats" class="tab-content">
+                <div class="card">
+                    <h2>System Statistics</h2>
+                    <button id="refreshStats" class="btn btn-secondary">🔄 Refresh</button>
+                    <div id="statsGrid" class="stats-grid"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>RAG Document Q&A System | Built with FastAPI, ChromaDB, and OpenCode</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
