@@ -1,0 +1,10 @@
+🤖 Answer
+I could not generate an answer because the LLM service is unavailable: Error code: 401 - {'type': 'error', 'error': {'type': 'ModelError', 'message': 'Model nemotron-3-super-free is not supported'}} Please check your OPENCODE_API_KEY and ensure the LLM endpoint is reachable.
+📚 Citations (5)
+📄 tmpl05yeub5.pdf (Page 0, Chunk 0) Score: 1.7788
+📄 tmpptz5_k7p.pdf (Page 0, Chunk 0) Score: 1.7788
+📄 tmpe9f4loo0.pdf (Page 0, Chunk 0) Score: 1.7788
+📄 tmpptz5_k7p.pdf (Page 0, Chunk 3) Score: 1.8144
+📄 tmpe9f4loo0.pdf (Page 0, Chunk 3) Score: 1.8144
+⏱️ Retrieval: 27ms | Generation: 254ms
+
